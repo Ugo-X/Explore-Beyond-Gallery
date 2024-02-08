@@ -183,6 +183,7 @@ Banner
   position: relative;
   height: 100vh;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.996), #0000ff1e);
+  background-attachment: fixed;
 }
 
 .banner-heading {
@@ -199,6 +200,22 @@ Banner
   transition: var(--transition);
   line-height: 1.5;
   font-size: 1.5rem;
+}
+
+
+.telescope {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; /* Adjust width as needed */
+  height: 100vh; /* Adjust height as needed */
+  background-image: url('choice_images/Ai_after_it_all.jpeg'); /* Replace with your telescope image */
+  background-size: cover;
+  z-index: -4; /* Negative z-index to place it behind other content */
+  opacity: 0.7; /* Adjust opacity for the dark overlay effect */
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.613); /* Dark overlay */
+  background-attachment: fixed;
 }
 
 
