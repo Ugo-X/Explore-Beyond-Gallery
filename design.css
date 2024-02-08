@@ -198,7 +198,21 @@ Banner
   max-width: 50rem;
   transition: var(--transition);
   line-height: 1.5;
+  font-size: 1rem;
 }
+
+
+@media screen and (min-width: 768px) {
+.banner-heading{
+  font-size: 2rem;
+}
+}
+@media screen and (min-width: 992px) {
+  .banner-heading{
+    font-size: 3rem;
+  }
+  }
+
 
 
 
