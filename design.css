@@ -452,6 +452,7 @@ Modal
   opacity: 0.5;
   transition: var(--transition);
   cursor: pointer;
+  margin-bottom: 2rem;
 }
 .modal-img:hover {
   opacity: 1;

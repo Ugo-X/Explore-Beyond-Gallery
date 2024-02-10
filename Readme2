@@ -1,0 +1,45 @@
+// creating a function that gets the element we are selecting or throws an erro if the element does not exist.
+function getElement (selection){
+  const element = document.querySelector(selection)
+  if(element){
+    return element
+  }
+  throw new Error(`please check ${selection}, selector does not exist`)
+}
+
+// next we want to create a gallery constructor function to create gallery objects. this function is going to be looking for an element to apply our gallery functions on
+function Gallery(element){
+this.container = element
+this.modal = getElement('.modal')
+this.list = [...document.querySelectorAll('.img')]
+this.closeBtn = getElement('.close-btn')
+this.prevBtn = getElement('.prev-btn')
+this.nextBtn = getElement('.next-btn')
+this.mainModalImage = getElement('.main-img')
+this.imageName = getElement('.image-name')
+this.modalImages = getElement('.modal-images')
+this.container.addEventListener('click',function(e){
+  if(e.target.classList.contains('img')){
+this.openModal(e.target,this.list)
+console.log(this);
+  }
+}.bind(this)
+)
+}
+
+Gallery.prototype.openModal = function(selectedImage, list){
+  this.setMainImage(selectedImage,list)
+this.modal.classList.add('open')
+
+}
+
+Gallery.prototype.setMainImage = function(selectedImage){
+this.mainModalImage.src = selectedImage.src
+this.imageName.textContent = selectedImage.title
+this.mainModalImage.style.height = `${30}rem`
+}
+
+const city = new Gallery(getElement('.city'))
+const nature = new Gallery(getElement('.nature'))
+
+
