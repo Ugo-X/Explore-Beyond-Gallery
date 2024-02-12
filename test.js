@@ -30,8 +30,7 @@ function Gallery(element) {
   this.closeModal = this.closeModal.bind(this);
   this.prevImage = this.prevImage.bind(this);
   this.nextImage = this.nextImage.bind(this);
-  this.selectImage = this.selectImage.bind(this)
-  
+  this.selectImage = this.selectImage.bind(this);
 }
 
 Gallery.prototype.openModal = function (selectedImage, list) {
@@ -49,13 +48,12 @@ Gallery.prototype.openModal = function (selectedImage, list) {
   this.nextBtn.addEventListener("click", this.nextImage);
   this.prevBtn.addEventListener("click", this.prevImage);
   this.modalImages.addEventListener("click", this.selectImage);
-
 };
 Gallery.prototype.setMainImage = function (selectedImage) {
-    this.modalMainImage.src = selectedImage.src;
-    this.imageName.textContent = selectedImage.title;
-    this.modalMainImage.style.height = ` ${30}rem`;
-  };
+  this.modalMainImage.src = selectedImage.src;
+  this.imageName.textContent = selectedImage.title;
+  this.modalMainImage.style.height = ` ${30}rem`;
+};
 
 Gallery.prototype.closeModal = function () {
   this.modal.classList.remove("open");
@@ -65,7 +63,7 @@ Gallery.prototype.closeModal = function () {
   this.modalImages.removeEventListener("click", this.selectedImage);
 };
 Gallery.prototype.nextImage = function () {
-//   console.log(this);
+  //   console.log(this);
   const selectedImg = this.modalImages.querySelector(".selected");
   const nextElement =
     selectedImg.nextElementSibling || this.modalImages.firstElementChild;
@@ -79,21 +77,18 @@ Gallery.prototype.prevImage = function () {
     selectedImg.previousElementSibling || this.modalImages.lastElementChild;
   selectedImg.classList.remove("selected");
   prevElement.classList.add("selected");
-  this.setmainImage(prevElement);
+  this.setMainImage(prevElement);
 };
 
-
-Gallery.prototype.selectImage = function(e){
-if(e.target.classList.contains('modal-img')){
-    const targetImage = e.target
- this.setMainImage(targetImage)
- const selected = this.modalImages.querySelector('.selected')
- selected.classList.remove('selected')
-targetImage.classList.add('selected')
-}
-}
-
-
+Gallery.prototype.selectImage = function (e) {
+  if (e.target.classList.contains("modal-img")) {
+    const targetImage = e.target;
+    this.setMainImage(targetImage);
+    const selected = this.modalImages.querySelector(".selected");
+    selected.classList.remove("selected");
+    targetImage.classList.add("selected");
+  }
+};
 
 const nature = new Gallery(getElement(".nature"));
 const city = new Gallery(getElement(".city"));
