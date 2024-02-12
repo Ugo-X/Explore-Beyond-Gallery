@@ -30,6 +30,8 @@ function Gallery(element) {
   this.closeModal = this.closeModal.bind(this);
   this.prevImage = this.prevImage.bind(this);
   this.nextImage = this.nextImage.bind(this);
+  this.selectImage = this.selectImage.bind(this)
+  
 }
 
 Gallery.prototype.openModal = function (selectedImage, list) {
@@ -46,18 +48,21 @@ Gallery.prototype.openModal = function (selectedImage, list) {
   this.closeBtn.addEventListener("click", this.closeModal);
   this.nextBtn.addEventListener("click", this.nextImage);
   this.prevBtn.addEventListener("click", this.prevImage);
+  this.modalImages.addEventListener("click", this.selectImage);
+
 };
 Gallery.prototype.setMainImage = function (selectedImage) {
     this.modalMainImage.src = selectedImage.src;
     this.imageName.textContent = selectedImage.title;
     this.modalMainImage.style.height = ` ${30}rem`;
   };
-  
+
 Gallery.prototype.closeModal = function () {
   this.modal.classList.remove("open");
   this.closeBtn.removeEventListener("click", this.closeModal);
   this.nextBtn.removeEventListener("click", this.nextImage);
   this.prevBtn.removeEventListener("click", this.prevImage);
+  this.modalImages.removeEventListener("click", this.selectedImage);
 };
 Gallery.prototype.nextImage = function () {
 //   console.log(this);
@@ -76,6 +81,17 @@ Gallery.prototype.prevImage = function () {
   prevElement.classList.add("selected");
   this.setmainImage(prevElement);
 };
+
+
+Gallery.prototype.selectImage = function(e){
+if(e.target.classList.contains('modal-img')){
+    const targetImage = e.target
+ this.setMainImage(targetImage)
+ const selected = this.modalImages.querySelector('.selected')
+ selected.classList.remove('selected')
+targetImage.classList.add('selected')
+}
+}
 
 
 
