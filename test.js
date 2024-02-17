@@ -1,42 +1,95 @@
+function getElement(selection) {
+  const element = document.querySelector(selection);
+  if (element) {
+    return element;
+  }
+  throw new Error(`please check ${selection}, selector does not exist`);
+}
+
+function Gallery(element) {
+  this.container = element;
+  this.list = [...element.querySelectorAll(".img")];
+  this.modal = getElement(".modal");
+  this.modalMainImage = getElement(".main-img");
+  this.imageName = getElement(".image-name");
+  this.modalImages = getElement(".modal-images");
+  this.closeBtn = getElement(".close-btn");
+  this.prevBtn = getElement(".prev-btn");
+  this.nextBtn = getElement(".next-btn");
+  //   bind functions
+
+  this.container.addEventListener(
+    "click",
+    function (e) {
+      if (e.target.classList.contains("img")) {
+        this.openModal(e.target, this.list);
+      }
+    }.bind(this)
+  );
+  //   bind functions
+  this.closeModal = this.closeModal.bind(this);
+  this.prevImage = this.prevImage.bind(this);
+  this.nextImage = this.nextImage.bind(this);
+  this.selectImage = this.selectImage.bind(this);
+}
+
+Gallery.prototype.openModal = function (selectedImage, list) {
+  console.log(selectedImage, list);
+  this.modal.classList.add("open");
+  this.setMainImage(selectedImage);
+  this.modalImages.innerHTML = list
+    .map(function (image) {
+      return `<img src = "${
+        image.src
+      }" title = "${image.title}" data-id = "${image.dataset.id}" class = "${selectedImage.dataset.id === image.dataset.id ? "modal-img selected" : "modal-img"}" />`;
+    })
+    .join("");
+  this.closeBtn.addEventListener("click", this.closeModal);
+  this.nextBtn.addEventListener("click", this.nextImage);
+  this.prevBtn.addEventListener("click", this.prevImage);
+  this.modalImages.addEventListener("click", this.selectImage);
+};
+Gallery.prototype.setMainImage = function (selectedImage) {
+  this.modalMainImage.src = selectedImage.src;
+  this.imageName.textContent = selectedImage.title;
+  this.modalMainImage.style.height = ` ${30}rem`;
+};
+
 Gallery.prototype.closeModal = function () {
-  this.modal.classList.remove("open");  // Remove the "open" class from the modal to close it
-  this.closeBtn.removeEventListener("click", this.closeModal);  // Remove event listener for close button
-  this.nextBtn.removeEventListener("click", this.nextImage);  // Remove event listener for next button
-  this.prevBtn.removeEventListener("click", this.prevImage);  // Remove event listener for previous button
-  this.modalImages.removeEventListener("click", this.selectedImage);  // Remove event listener for modal images
+  this.modal.classList.remove("open");
+  this.closeBtn.removeEventListener("click", this.closeModal);
+  this.nextBtn.removeEventListener("click", this.nextImage);
+  this.prevBtn.removeEventListener("click", this.prevImage);
+  this.modalImages.removeEventListener("click", this.selectedImage);
 };
-
 Gallery.prototype.nextImage = function () {
-  const selectedImg = this.modalImages.querySelector(".selected");  // Get the currently selected image
-  const nextElement = selectedImg.nextElementSibling || this.modalImages.firstElementChild;  // Get the next image or the first image if there's none
-  selectedImg.classList.remove("selected");  // Remove the "selected" class from the current image
-  nextElement.classList.add("selected");  // Add the "selected" class to the next image
-  this.setMainImage(nextElement);  // Set the main image to be displayed
+  //   console.log(this);
+  const selectedImg = this.modalImages.querySelector(".selected");
+  const nextElement =
+    selectedImg.nextElementSibling || this.modalImages.firstElementChild;
+  selectedImg.classList.remove("selected");
+  nextElement.classList.add("selected");
+  this.setMainImage(nextElement);
 };
-
 Gallery.prototype.prevImage = function () {
-  const selectedImg = this.modalImages.querySelector(".selected");  // Get the currently selected image
-  const prevElement = selectedImg.previousElementSibling || this.modalImages.lastElementChild;  // Get the previous image or the last image if there's none
-  selectedImg.classList.remove("selected");  // Remove the "selected" class from the current image
-  prevElement.classList.add("selected");  // Add the "selected" class to the previous image
-  this.setMainImage(prevElement);  // Set the main image to be displayed
+  const selectedImg = this.modalImages.querySelector(".selected");
+  const prevElement =
+    selectedImg.previousElementSibling || this.modalImages.lastElementChild;
+  selectedImg.classList.remove("selected");
+  prevElement.classList.add("selected");
+  this.setMainImage(prevElement);
 };
 
 Gallery.prototype.selectImage = function (e) {
-  if (e.target.classList.contains("modal-img")) {  // Check if the clicked element is a modal image
-    const targetImage = e.target;  // Get the clicked image
-    this.setMainImage(targetImage);  // Set the main image to be displayed
-    const selected = this.modalImages.querySelector(".selected");  // Get the currently selected image
-    selected.classList.remove("selected");  // Remove the "selected" class from the current image
-    targetImage.classList.add("selected");  // Add the "selected" class to the clicked image
+  if (e.target.classList.contains("modal-img")) {
+    const targetImage = e.target;
+    this.setMainImage(targetImage);
+    const selected = this.modalImages.querySelector(".selected");
+    selected.classList.remove("selected");
+    targetImage.classList.add("selected");
   }
 };
 
-const nature = new Gallery(getElement(".nature"));  // Create a new Gallery instance for nature images
-const city = new Gallery(getElement(".city"));  // Create a new Gallery instance for city images
-
-
-
-
-//   The project is a gallery that allows users to view images in a modal window. When an image is clicked, it opens in the modal along with navigation buttons to view the previous and next images. The Gallery class manages the modal functionality, including opening and closing the modal, navigating between images, and selecting images. It sets up event listeners for user interactions and updates the display accordingly. Each method in the class handles a specific aspect of the gallery functionality, making the code modular and easier to maintain.
+const nature = new Gallery(getElement(".nature"));
+const city = new Gallery(getElement(".city"));
 
