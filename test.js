@@ -34,3 +34,9 @@ Gallery.prototype.selectImage = function (e) {
 
 const nature = new Gallery(getElement(".nature"));  // Create a new Gallery instance for nature images
 const city = new Gallery(getElement(".city"));  // Create a new Gallery instance for city images
+
+
+
+
+//   The project is a gallery that allows users to view images in a modal window. When an image is clicked, it opens in the modal along with navigation buttons to view the previous and next images. The Gallery class manages the modal functionality, including opening and closing the modal, navigating between images, and selecting images. It sets up event listeners for user interactions and updates the display accordingly. Each method in the class handles a specific aspect of the gallery functionality, making the code modular and easier to maintain.
+
