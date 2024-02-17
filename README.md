@@ -170,3 +170,7 @@ Here's why we want to remove the event listeners:
 2. **Avoiding Unexpected Behavior**: If event listeners are not removed, they may continue to respond to events even when the corresponding elements are no longer part of the DOM or when the instance of the Gallery is destroyed. This can lead to unexpected behavior in the application. By removing event listeners, you ensure that they are only active when the Gallery is visible and functional.
 
 In summary, removing event listeners is important for managing resources efficiently and preventing unexpected behavior in the application. It ensures that event handlers are properly cleaned up when they are no longer needed, promoting better performance and stability.
+
+
+
+
