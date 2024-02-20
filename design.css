@@ -324,6 +324,7 @@ City
   border-top: dotted;
   border-color: white;
   position: relative;
+  margin-bottom: 4rem;
 }
 
 .heading {
@@ -385,6 +386,9 @@ Rubix
   color: var(--clr-white);
   font-weight: 900;
   width: 100vw;
+  height: 10rem;
+  display: grid;
+  place-items: center;
 
 }
 
