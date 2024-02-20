@@ -422,8 +422,19 @@ Rubix
   margin-top: 4rem;
   border-top: dotted;
   border-color: white;
+  width: 90vw;
+  display:flex;
+ align-content: center;
 }
+.rubix-img{
+  width: 100%;
+  height: 20rem;
+align-content: center;
+margin-bottom: 2rem;
+}
+.rubix-article.text{
 
+}
 /*
 =============== 
 Modal
