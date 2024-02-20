@@ -92,4 +92,5 @@ Gallery.prototype.selectImage = function (e) {
 
 const nature = new Gallery(getElement(".nature"));
 const city = new Gallery(getElement(".city"));
+const rubix = new Gallery(getElement('.rubix'))
 

@@ -202,7 +202,6 @@ Banner
   font-size: 1.5rem;
 }
 
-
 .telescope {
   position: absolute;
   top: 50%;
@@ -210,7 +209,7 @@ Banner
   transform: translate(-50%, -50%);
   width: 100%; /* Adjust width as needed */
   height: 100vh; /* Adjust height as needed */
-  background-image: url('choice_images/Ai_after_it_all.jpeg'); /* Replace with your telescope image */
+  background-image: url("choice_images/Ai_after_it_all.jpeg"); /* Replace with your telescope image */
   background-size: cover;
   z-index: -4; /* Negative z-index to place it behind other content */
   opacity: 0.7; /* Adjust opacity for the dark overlay effect */
@@ -218,37 +217,29 @@ Banner
   background-attachment: fixed;
 }
 
-
 @media screen and (min-width: 768px) {
-.banner-heading{
-  font-size: 2rem;
-}
+  .banner-heading {
+    font-size: 2rem;
+  }
 }
 @media screen and (min-width: 992px) {
-  .banner-heading{
+  .banner-heading {
     font-size: 3rem;
   }
-  }
-
-
-
+}
 
 .A {
   animation: appear 2s 0.5s ease-in 1 normal;
   transition: all 0.5s ease-in-out;
-
 }
 .B {
   display: inline-block;
   animation: slide-in 2s ease-in 1 normal;
-
 }
-.explore{
+.explore {
   display: inline-block;
-    animation: dynamic 2.5s ease-in 1 normal;
-
+  animation: dynamic 2.5s ease-in 1 normal;
 }
-
 
 @keyframes appear {
   0% {
@@ -263,10 +254,10 @@ Banner
   75% {
     opacity: 0.15;
   }
-  80%{
+  80% {
     opacity: 0;
   }
-  90%{
+  90% {
     opacity: 0.15;
   }
   100% {
@@ -288,10 +279,10 @@ Banner
   75% {
     opacity: 0.3;
   }
-  80%{
+  80% {
     opacity: 0.4;
   }
-  90%{
+  90% {
     opacity: 0.5;
   }
   100% {
@@ -300,13 +291,13 @@ Banner
 }
 
 @keyframes dynamic {
-  0%{
+  0% {
     opacity: 0;
   }
-  25%{
-    transform: rotateX('50deg');
+  25% {
+    transform: rotateX("50deg");
   }
-  50%{
+  50% {
     opacity: 0;
     transform: translateY(-500px);
   }
@@ -353,18 +344,75 @@ nature
 */
 
 .nature {
- position: relative;
+  position: relative;
 }
 
-.nature-overlay{
+/* overlay created to reduce the brightness of the images */
+.nature-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.387),rgba(0, 0, 0, 0.503));
+  background: linear-gradient(rgba(0, 0, 0, 0.387), rgba(0, 0, 0, 0.503));
 }
 
+/*
+=============== 
+Rubix
+===============
+*/
+
+.rubix-heading-div {
+  background: url(./Rubix-Cube-Banner-2.jpeg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: grid;
+  place-items: center;
+  height: 45rem;
+  width: 100vw;
+  object-fit: cover;
+  margin: 0 auto;
+  position: relative;
+  z-index: 20;
+}
+
+.rubix-heading {
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 10px;
+  text-align: center;
+  line-height: 1.5;
+  color: var(--clr-white);
+  font-weight: 900;
+  width: 100vw;
+
+}
+
+.rubix-heading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 40;
+}
+
+.rubix-intro-text {
+  color: var(--clr-white);
+  position: absolute;
+  width: 70vw;
+  text-align: justify;
+  margin: 0 auto;
+  z-index: 1000;
+  line-height: 3;
+  font-weight: bolder;
+}
+
+.rubix {
+  border-top: dotted;
+  border-color: white;
+}
 
 /*
 =============== 
