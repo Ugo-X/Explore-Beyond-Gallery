@@ -476,7 +476,7 @@ margin: 1.5rem auto;
   padding: 0.5rem;
   font-size: 2rem;
   color: var(--clr-white);
-  border-color: white;
+  border-color:var(--clr-white);
   cursor: pointer;
 }
 
@@ -486,11 +486,11 @@ margin: 1.5rem auto;
   width:95% ;
   max-width: var(--max-width);
   margin: 0 auto;
-  margin-top: 10rem;
+  margin-top: 7rem;
   position: relative;
 }
 .main-img {
-  margin-top: -1rem;
+
   width: 100%;
   height: 20rem;
   object-fit: cover;
