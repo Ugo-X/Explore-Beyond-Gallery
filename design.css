@@ -438,7 +438,7 @@ Rubix
 
 .rubix-article-text.open{
   opacity: 1;
-  z-index: 90;
+  z-index: 99;
 }
 
 .rubix-article-text p {

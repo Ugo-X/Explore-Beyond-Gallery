@@ -16,12 +16,17 @@ function Gallery(element) {
   this.closeBtn = getElement(".close-btn");
   this.prevBtn = getElement(".prev-btn");
   this.nextBtn = getElement(".next-btn");
+  this.textDisplay = getElement(".text-display");
+  this.rubixArticleText = getElement(".rubix-article-text");
 
   //   bind functions
   this.container.addEventListener(
     "click",
     function (e) {
-      if (e.target.classList.contains("img") || e.target.classList.contains('rubix-img')) {
+      const clickedImage = e.target.classList.contains("rubix-img,img")
+        ? e.target
+        : e.target.closest("rubix-img,img");
+      if (clickedImage) {
         this.openModal(e.target, this.list);
       }
     }.bind(this)
@@ -35,8 +40,18 @@ function Gallery(element) {
 
 Gallery.prototype.openModal = function (selectedImage, list) {
   console.log(selectedImage, list);
+  const rubixIMages = list.filter(function (evt) {
+    if (evt.classList.contains("rubix-img")) {
+      this.modalImages.innerHTML = rubixIMages
+        .map(function (image) {
+          return `<img src = "${
+            image.src
+          }" title = "${image.title}" data-id = "${image.dataset.id}" class = "${selectedImage.dataset.id === image.dataset.id ? "modal-img selected" : "modal-img"}"`;
+        })
+        .join("");
+    }
+  });
   this.modal.classList.add("open");
-  this.setMainImage(selectedImage);
   this.modalImages.innerHTML = list
     .map(function (image) {
       return `<img src = "${
@@ -89,8 +104,15 @@ Gallery.prototype.selectImage = function (e) {
     targetImage.classList.add("selected");
   }
 };
+Gallery.prototype.setRubixContent = function (selectedImage) {
+  const description = selectedImage.dataset.id;
+  this.modalMainImage.src = selectedImage.src;
+  this.imageName.textContent = selectedImage.title;
+  this.modalMainImage.style.height = "auto";
+  this.rubixArticleText.classList.add("open");
+  this.rubixArticleText.textContent = description;
+};
 
 const nature = new Gallery(getElement(".nature"));
 const city = new Gallery(getElement(".city"));
-const rubix = new Gallery(getElement('.rubix'))
-
+const rubix = new Gallery(getElement(".rubix"));
