@@ -135,7 +135,7 @@ p {
 /* section */
 .section {
   padding: 5rem 0;
-  width: 90vw;
+  width: 100vw;
   margin: 0 auto;
   max-width: 1170px;
   display: grid;
