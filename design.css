@@ -168,6 +168,7 @@ p {
   transition: var(--transition);
   box-shadow: var(--light-shadow);
   height: 20rem;
+background-position: center;
 }
 .img:hover {
   box-shadow: var(--dark-shadow);
