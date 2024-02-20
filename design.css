@@ -324,7 +324,7 @@ City
   border-top: dotted;
   border-color: white;
   position: relative;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
 }
 
 .heading {
@@ -377,8 +377,7 @@ Rubix
   margin: 2rem auto;
   position: relative;
   z-index: 20;
-  max-height: 30rem;
-  overflow: scroll;
+
 }
 
 .rubix-heading {
@@ -389,7 +388,7 @@ Rubix
   color: var(--clr-white);
   font-weight: 900;
   width: 100vw;
-  height: 10rem;
+  height: 5rem;
   display: grid;
   place-items: center;
 
@@ -414,6 +413,8 @@ Rubix
   z-index: 1000;
   line-height: 2;
   font-weight: bolder;
+  max-height: 30rem;
+  overflow: scroll;
 }
 
 .rubix {
