@@ -368,14 +368,17 @@ Rubix
   background: url(./Rubix-Cube-Banner-2.jpeg);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center;
   display: grid;
   place-items: center;
   height: 45rem;
   width: 100vw;
   object-fit: cover;
-  margin: 0 auto;
+  margin: 2rem auto;
   position: relative;
   z-index: 20;
+  max-height: 30rem;
+  overflow: scroll;
 }
 
 .rubix-heading {
@@ -405,15 +408,16 @@ Rubix
 .rubix-intro-text {
   color: var(--clr-white);
   position: absolute;
-  width: 70vw;
+  width: 90vw;
   text-align: justify;
   margin: 0 auto;
   z-index: 1000;
-  line-height: 3;
+  line-height: 2;
   font-weight: bolder;
 }
 
 .rubix {
+  margin-top: 4rem;
   border-top: dotted;
   border-color: white;
 }
