@@ -8,7 +8,7 @@ function getElement(selection) {
 
 function Gallery(element) {
   this.container = element;
-  this.list = [...element.querySelectorAll(".img")];
+  this.list = [...element.querySelectorAll(".img, .rubix-img")];
   this.modal = getElement(".modal");
   this.modalMainImage = getElement(".main-img");
   this.imageName = getElement(".image-name");
@@ -16,12 +16,12 @@ function Gallery(element) {
   this.closeBtn = getElement(".close-btn");
   this.prevBtn = getElement(".prev-btn");
   this.nextBtn = getElement(".next-btn");
-  //   bind functions
 
+  //   bind functions
   this.container.addEventListener(
     "click",
     function (e) {
-      if (e.target.classList.contains("img")) {
+      if (e.target.classList.contains("img") || e.target.classList.contains('rubix-img')) {
         this.openModal(e.target, this.list);
       }
     }.bind(this)

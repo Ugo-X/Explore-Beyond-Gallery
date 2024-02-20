@@ -168,7 +168,7 @@ p {
   transition: var(--transition);
   box-shadow: var(--light-shadow);
   height: 20rem;
-background-position: center;
+  background-position: center;
 }
 .img:hover {
   box-shadow: var(--dark-shadow);
@@ -378,7 +378,6 @@ Rubix
   margin: 2rem auto;
   position: relative;
   z-index: 20;
-
 }
 
 .rubix-heading {
@@ -392,7 +391,6 @@ Rubix
   height: 5rem;
   display: grid;
   place-items: center;
-
 }
 
 .rubix-heading-overlay {
@@ -423,25 +421,44 @@ Rubix
   border-top: dotted;
   border-color: white;
   width: 90vw;
-  display:flex;
- align-content: center;
+  display: flex;
+  align-content: center;
 }
-.rubix-img{
+.rubix-img {
   width: 100%;
-  height: 20rem;
-align-content: center;
-margin-bottom: 2rem;
+  height: 15rem;
+  align-content: center;
+  margin-bottom: 2rem;
 }
-.rubix-article.text{
+.rubix-article-text {
+  color: var(--clr-white);
+  opacity: 0;
+  z-index: -2;
+}
+
+.rubix-article-text.open{
+  opacity: 1;
+  z-index: 90;
+}
+
+.rubix-article-text p {
+  color: var(--clr-white);
+  text-align: justify;
+
 
 }
+
+
+/* .rubix-article-text{
+  z-index: -2;
+  opacity: 0;
+} */
+
 /*
 =============== 
 Modal
 ===============
 */
-
-
 
 .modal {
   position: fixed;
@@ -471,13 +488,13 @@ Modal
   cursor: pointer;
 }
 
-.prev-next-container{
-display: flex;
-justify-content: center;
-align-items: center;
-column-gap: 1rem;
-gap: -5rem;
-margin: 1.5rem auto;
+.prev-next-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+  gap: -5rem;
+  margin: 1.5rem auto;
 }
 
 .next-btn,
@@ -487,21 +504,18 @@ margin: 1.5rem auto;
   padding: 0.5rem;
   font-size: 2rem;
   color: var(--clr-white);
-  border-color:var(--clr-white);
+  border-color: var(--clr-white);
   cursor: pointer;
 }
 
-
-
 .modal-content {
-  width:95% ;
+  width: 95%;
   max-width: var(--max-width);
   margin: 0 auto;
   margin-top: 7rem;
   position: relative;
 }
 .main-img {
-
   width: 100%;
   height: 20rem;
   object-fit: cover;
